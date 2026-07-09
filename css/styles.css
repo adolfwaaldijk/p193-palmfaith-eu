@@ -721,3 +721,109 @@ select:focus {
     font-size: 1.35rem;
   }
 }
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.site-footer {
+
+  margin-top: 80px;
+
+  padding: 42px 5%;
+
+  border-top: 1px solid rgba(255, 255, 255, .08);
+
+  background: rgba(255, 255, 255, .02);
+}
+
+.footer-content {
+
+  max-width: 1400px;
+
+  margin: auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 40px;
+
+  flex-wrap: wrap;
+}
+
+.footer-left {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+}
+
+.footer-logo {
+
+  width: auto;
+
+  height: 46px;
+}
+
+.footer-text {
+
+  line-height: 1.6;
+
+  color: var(--text-muted);
+
+  font-size: .95rem;
+}
+
+.footer-text strong {
+
+  color: #ffffff;
+
+  font-size: 1.05rem;
+}
+
+.footer-right {
+
+  text-align: right;
+}
+
+.footer-status {
+
+  color: var(--primary);
+
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+.footer-quality {
+
+  color: var(--text-muted);
+
+  font-size: .90rem;
+}
+
+@media (max-width:800px) {
+
+  .footer-content {
+
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .footer-left {
+
+    flex-direction: column;
+  }
+
+  .footer-right {
+
+    text-align: center;
+  }
+
+}
