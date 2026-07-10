@@ -139,7 +139,7 @@
       </div>
 
       <div class="table-wrap">
-        <table>
+        <table class="comparison-table">
           <thead>
             <tr>
               <th>Requirement</th>
@@ -149,44 +149,55 @@
               <th>PalmFaith</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
-              <td>Cannot be forgotten</td>
-              <td>✕</td>
-              <td>✕</td>
-              <td>✕</td>
-              <td>✓</td>
+              <td data-label="Requirement">Cannot be forgotten</td>
+              <td data-label="Passwords">✕</td>
+              <td data-label="Cards / Tokens">✕</td>
+              <td data-label="Mobile MFA">✕</td>
+              <td data-label="PalmFaith">✓</td>
             </tr>
+
             <tr>
-              <td>Does not require a carried device</td>
-              <td>✓</td>
-              <td>✕</td>
-              <td>✕</td>
-              <td>✓</td>
+              <td data-label="Requirement">Does not require a carried device</td>
+              <td data-label="Passwords">✓</td>
+              <td data-label="Cards / Tokens">✕</td>
+              <td data-label="Mobile MFA">✕</td>
+              <td data-label="PalmFaith">✓</td>
             </tr>
+
             <tr>
-              <td>Strong identity binding</td>
-              <td>✕</td>
-              <td>△</td>
-              <td>△</td>
-              <td>✓</td>
+              <td data-label="Requirement">Strong identity binding</td>
+              <td data-label="Passwords">✕</td>
+              <td data-label="Cards / Tokens">△</td>
+              <td data-label="Mobile MFA">△</td>
+              <td data-label="PalmFaith">✓</td>
             </tr>
+
             <tr>
-              <td>Low user friction</td>
-              <td>△</td>
-              <td>△</td>
-              <td>△</td>
-              <td>✓</td>
+              <td data-label="Requirement">Low user friction</td>
+              <td data-label="Passwords">△</td>
+              <td data-label="Cards / Tokens">△</td>
+              <td data-label="Mobile MFA">△</td>
+              <td data-label="PalmFaith">✓</td>
             </tr>
+
             <tr>
-              <td>Suitable for controlled environments</td>
-              <td>△</td>
-              <td>✓</td>
-              <td>△</td>
-              <td>✓</td>
+              <td data-label="Requirement">Suitable for controlled environments</td>
+              <td data-label="Passwords">△</td>
+              <td data-label="Cards / Tokens">✓</td>
+              <td data-label="Mobile MFA">△</td>
+              <td data-label="PalmFaith">✓</td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="comparison-legend" aria-label="Comparison symbol explanation">
+        <span><strong>✓</strong> Strong fit</span>
+        <span><strong>△</strong> Partial fit or depends on configuration</span>
+        <span><strong>✕</strong> Not designed for this requirement</span>
       </div>
       <p class="table-scroll-note">
         Swipe horizontally to compare all authentication methods.
