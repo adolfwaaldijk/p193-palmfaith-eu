@@ -842,27 +842,32 @@ select:focus {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border: 1px solid var(--border);
+    border-radius: var(--radius);
   }
 
   table {
-    min-width: 760px;
+    width: 680px;
+    min-width: 680px;
   }
 
   th,
   td {
     padding: 14px 12px;
-    white-space: nowrap;
+    white-space: normal;
+    vertical-align: middle;
   }
 
   th:first-child,
   td:first-child {
-    position: sticky;
-    left: 0;
-    z-index: 2;
-    background: var(--surface);
+    position: static;
+    width: 210px;
+    min-width: 210px;
   }
 
-  thead th:first-child {
-    background: #18314d;
+  th:not(:first-child),
+  td:not(:first-child) {
+    width: 115px;
+    min-width: 115px;
+    text-align: center;
   }
 }
