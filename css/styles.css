@@ -452,7 +452,7 @@ select {
   position: relative;
   width: 100%;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   -webkit-overflow-scrolling: touch;
@@ -483,21 +483,23 @@ select {
 
 .comparison-table th:first-child,
 .comparison-table td:first-child {
+  position: -webkit-sticky;
   position: sticky;
   left: 0;
-  z-index: 2;
+  z-index: 5;
   width: 260px;
   min-width: 260px;
   max-width: 260px;
   white-space: normal;
   text-align: left;
-  background: var(--surface);
-  box-shadow: 8px 0 14px rgba(0, 0, 0, 0.28);
+  background-color: var(--surface);
+  background-clip: padding-box;
+  box-shadow: 8px 0 14px rgba(0, 0, 0, 0.35);
 }
 
 .comparison-table thead th:first-child {
-  z-index: 4;
-  background: #18314d;
+  z-index: 6;
+  background-color: #18314d;
 }
 
 .comparison-table tr:last-child td {
