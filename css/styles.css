@@ -497,6 +497,33 @@ select {
   box-shadow: 8px 0 14px rgba(0, 0, 0, 0.35);
 }
 
+.comparison-table td {
+  font-weight: 600;
+}
+
+.comparison-table td:last-child {
+  color: var(--success);
+}
+
+.comparison-table td[data-label="Passwords"],
+.comparison-table td[data-label="Cards / Tokens"],
+.comparison-table td[data-label="Mobile MFA"] {
+  color: var(--text-soft);
+}
+
+.comparison-table td {
+  font-size: 1rem;
+}
+
+.comparison-table td:not(:first-child) {
+  font-size: 1.2rem;
+}
+
+.comparison-table td {
+  --symbol-warning: #f0b44d;
+  --symbol-negative: #ef6b73;
+}
+
 .comparison-table thead th:first-child {
   z-index: 6;
   background-color: #18314d;
@@ -901,4 +928,18 @@ select:focus {
     font-size: 0.85rem;
     text-align: center;
   }
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+  background: rgba(0, 169, 232, 0.08);
+  border-left: 2px solid rgba(0, 169, 232, 0.45);
+}
+
+.comparison-table th:last-child {
+  color: #ffffff;
+}
+
+.comparison-table td:last-child {
+  font-weight: 700;
 }

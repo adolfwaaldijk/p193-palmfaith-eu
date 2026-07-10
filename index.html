@@ -132,9 +132,9 @@
     <section id="comparison" class="section comparison-section">
       <div class="section-heading">
         <p class="eyebrow">Decision support</p>
-        <h2>Authentication landscape</h2>
+        <h2>Authentication Methods</h2>
         <p>
-          PalmFaith should be evaluated against real alternatives, not against marketing slogans.
+          Compare today's most common authentication methods using practical decision criteria.
         </p>
       </div>
 
@@ -144,60 +144,62 @@
             <tr>
               <th>Requirement</th>
               <th>Passwords</th>
-              <th>Cards / Tokens</th>
+              <th>Cards</th>
               <th>Mobile MFA</th>
               <th>PalmFaith</th>
             </tr>
           </thead>
 
           <tbody>
+
             <tr>
-              <td data-label="Requirement">Cannot be forgotten</td>
-              <td data-label="Passwords">✕</td>
-              <td data-label="Cards / Tokens">✕</td>
-              <td data-label="Mobile MFA">✕</td>
-              <td data-label="PalmFaith">✓</td>
+              <td>Cannot be forgotten</td>
+              <td><span class="symbol-negative">✕</span></td>
+              <td><span class="symbol-negative">✕</span></td>
+              <td><span class="symbol-negative">✕</span></td>
+              <td><span class="symbol-positive">✓</span></td>
             </tr>
 
             <tr>
-              <td data-label="Requirement">Does not require a carried device</td>
-              <td data-label="Passwords">✓</td>
-              <td data-label="Cards / Tokens">✕</td>
-              <td data-label="Mobile MFA">✕</td>
-              <td data-label="PalmFaith">✓</td>
+              <td>No carried device</td>
+              <td><span class="symbol-positive">✓</span></td>
+              <td><span class="symbol-negative">✕</span></td>
+              <td><span class="symbol-negative">✕</span></td>
+              <td><span class="symbol-positive">✓</span></td>
             </tr>
 
             <tr>
-              <td data-label="Requirement">Strong identity binding</td>
-              <td data-label="Passwords">✕</td>
-              <td data-label="Cards / Tokens">△</td>
-              <td data-label="Mobile MFA">△</td>
-              <td data-label="PalmFaith">✓</td>
+              <td>Strong identity binding</td>
+              <td><span class="symbol-negative">✕</span></td>
+              <td><span class="symbol-warning">△</span></td>
+              <td><span class="symbol-warning">△</span></td>
+              <td><span class="symbol-positive">✓</span></td>
             </tr>
 
             <tr>
-              <td data-label="Requirement">Low user friction</td>
-              <td data-label="Passwords">△</td>
-              <td data-label="Cards / Tokens">△</td>
-              <td data-label="Mobile MFA">△</td>
-              <td data-label="PalmFaith">✓</td>
+              <td>Fast daily use</td>
+              <td><span class="symbol-warning">△</span></td>
+              <td><span class="symbol-warning">△</span></td>
+              <td><span class="symbol-warning">△</span></td>
+              <td><span class="symbol-positive">✓</span></td>
             </tr>
 
             <tr>
-              <td data-label="Requirement">Suitable for controlled environments</td>
-              <td data-label="Passwords">△</td>
-              <td data-label="Cards / Tokens">✓</td>
-              <td data-label="Mobile MFA">△</td>
-              <td data-label="PalmFaith">✓</td>
+              <td>Controlled environments</td>
+              <td><span class="symbol-warning">△</span></td>
+              <td><span class="symbol-positive">✓</span></td>
+              <td><span class="symbol-warning">△</span></td>
+              <td><span class="symbol-positive">✓</span></td>
             </tr>
+
           </tbody>
         </table>
       </div>
 
       <div class="comparison-legend" aria-label="Comparison symbol explanation">
-        <span><strong>✓</strong> Strong fit</span>
-        <span><strong>△</strong> Partial fit or depends on configuration</span>
-        <span><strong>✕</strong> Not designed for this requirement</span>
+        <span><strong class="symbol-positive">✓</strong> Recommended</span>
+        <span><strong class="symbol-warning">△</strong> Depends on implementation</span>
+        <span><strong class="symbol-negative">✕</strong> Not suitable</span>
       </div>
       <p class="table-scroll-note">
         Swipe horizontally to compare all authentication methods.
