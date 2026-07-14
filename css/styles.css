@@ -444,6 +444,22 @@ select {
   font-weight: 700;
 }
 
+.products-section .section-heading a {
+
+  color: var(--primary);
+
+  font-weight: 600;
+
+  transition: var(--transition);
+}
+
+.products-section .section-heading a:hover {
+
+  color: var(--primary-hover);
+
+  text-decoration: underline;
+}
+
 /* ==========================================================
    TABLE
 ========================================================== */
