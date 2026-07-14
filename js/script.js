@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initialiseHeader();
   initialiseDecisionCards();
   initialisePilotForm();
+  initialiseActiveNavigation();
 
 });
 
@@ -185,4 +186,58 @@ function initialisePilotForm() {
 
   });
 
+}
+
+/* ==========================================================
+   Active Navigation Section
+========================================================== */
+
+function initialiseActiveNavigation() {
+  const navigationLinks = Array.from(
+    document.querySelectorAll('.main-nav a[href^="#"]')
+  );
+
+  if (!navigationLinks.length) return;
+
+  const sections = navigationLinks
+    .map(link => {
+      const target = document.querySelector(link.getAttribute("href"));
+
+      return target
+        ? { link, target }
+        : null;
+    })
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  const setActiveLink = activeLink => {
+    navigationLinks.forEach(link => {
+      link.classList.toggle("is-active", link === activeLink);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    entries => {
+      const visibleSections = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (!visibleSections.length) return;
+
+      const activeSection = sections.find(
+        section => section.target === visibleSections[0].target
+      );
+
+      if (activeSection) {
+        setActiveLink(activeSection.link);
+      }
+    },
+    {
+      rootMargin: "-25% 0px -60% 0px",
+      threshold: [0.1, 0.25, 0.5]
+    }
+  );
+
+  sections.forEach(section => observer.observe(section.target));
 }

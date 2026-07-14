@@ -190,6 +190,25 @@ select {
   color: #fff;
 }
 
+.main-nav a.is-active,
+.main-nav a[aria-current="page"] {
+  color: #ffffff;
+  font-weight: 700;
+  position: relative;
+}
+
+.main-nav a.is-active::after,
+.main-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
 .header-cta {
 
   background: var(--primary);
@@ -442,22 +461,6 @@ select {
   color: var(--primary);
 
   font-weight: 700;
-}
-
-.products-section .section-heading a {
-
-  color: var(--primary);
-
-  font-weight: 600;
-
-  transition: var(--transition);
-}
-
-.products-section .section-heading a:hover {
-
-  color: var(--primary-hover);
-
-  text-decoration: underline;
 }
 
 /* ==========================================================
