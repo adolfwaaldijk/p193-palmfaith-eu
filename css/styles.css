@@ -222,9 +222,14 @@ select {
   z-index: 1100;
 }
 
-.coming-soon:hover .coming-soon-label,
 .coming-soon.show-coming-soon .coming-soon-label {
   display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .coming-soon:hover .coming-soon-label {
+    display: block;
+  }
 }
 
 .main-nav a.is-active,

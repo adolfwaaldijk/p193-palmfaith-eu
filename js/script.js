@@ -264,10 +264,27 @@ if (menuToggle && mainNav) {
 
 const consumerLink = document.querySelector(".coming-soon");
 
-document.querySelectorAll(".coming-soon").forEach(link => {
+const comingSoonLinks = document.querySelectorAll(".coming-soon");
+
+comingSoonLinks.forEach(link => {
   link.addEventListener("click", event => {
     event.preventDefault();
+    event.stopPropagation();
 
-    link.classList.toggle("show-coming-soon");
+    const wasOpen = link.classList.contains("show-coming-soon");
+
+    comingSoonLinks.forEach(item => {
+      item.classList.remove("show-coming-soon");
+    });
+
+    if (!wasOpen) {
+      link.classList.add("show-coming-soon");
+    }
+  });
+});
+
+document.addEventListener("click", () => {
+  comingSoonLinks.forEach(link => {
+    link.classList.remove("show-coming-soon");
   });
 });
