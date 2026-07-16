@@ -17,41 +17,47 @@
       <span class="brand-mark">FW</span>
       <span class="brand-text">FaithWorks Europe</span>
     </a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">
+      ☰
+    </button>
 
-    <nav class="main-nav" aria-label="Main navigation">
+    <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
       <a href="#decision">Why palm-vein?</a>
       <a href="#products">Products</a>
-      <a href="#comparison">Methods</a>
-      <a href="#downloads">Downloads</a>
+      <a href="#" class="coming-soon" aria-label="Consumer — coming soon">
+        Consumer
+        <span class="coming-soon-label" role="status">Coming soon</span>
+      </a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="coming-soon" aria-label="Login coming soon">
+        Login
+        <span class="coming-soon-label" role="status">Coming soon</span>
+      </a>
     </nav>
 
-    <a class="header-cta" href="#products">Start test order</a>
   </header>
   <main id="top">
     <section class="hero section">
       <div class="hero-content">
-        <h1>European palm-vein authentication:</h1>
-        <p class="hero-statement">Maximum security, seamless user experience.</p>
+        <h1>European palm-vein authentication?</h1>
+        <p class="hero-statement">
+          High-assurance security. Seamless everyday use.
+        </p>
 
         <p class="hero-lead">
-          FaithWorks Europe helps companies and institutions evaluate palm-vein authentication for secure access,
-          verified
-          identity and frictionless daily use.
+          FaithWorks Europe assembles and supplies PalmFaith products in Europe, helping organisations evaluate, test
+          and deploy palm-vein authentication for secure digital and physical access.
         </p>
 
         <div class="hero-actions">
           <a class="button primary" href="#products">
-            Returning visitor? Go Directly to Products
+            Returning visitor? Go directly to Products
           </a>
 
-          <a class="button secondary" href="#decision">
-            New to FaithWorks Europe? Start your evaluation journey here
+          <a class="button primary" href="#decision">
+            New to FaithWorks Europe? Start here
           </a>
         </div>
-
-        <p class="consumer-note">
-          Consumer access — coming soon
-        </p>
       </div>
 
       <div class="hero-image" aria-label="Palm-vein authentication device in use">
@@ -71,8 +77,9 @@
         <article class="decision-card">
           <span class="step">01</span>
           <h3>Explore</h3>
-          <p>Discover why palm-vein authentication deserves serious consideration for organisations requiring stronger
-            identity assurance.</p>
+          <p>
+            Discover whether palm-vein authentication solves a problem your current authentication methods do not.
+          </p>
         </article>
 
         <article class="decision-card">
@@ -90,8 +97,8 @@
 
         <article class="decision-card">
           <span class="step">04</span>
-          <h3>Start Test Order</h3>
-          <p>Purchase a small number of devices for practical evaluation in your own environment before making
+          <h3>Order Test Package</h3>
+          <p>Purchase or rent a small number of devices for practical evaluation in your own environment before making
             deployment decisions.</p>
         </article>
 
@@ -106,37 +113,38 @@
 
     <section id="products" class="section products-section">
       <div class="section-heading">
-        <h2>Two product lines, one authentication logic</h2>
+        <h2>Two products. One goal: verify the person.</h2>
       </div>
 
       <div class="product-grid">
         <article class="product-card featured">
           <p class="product-label">PalmFaith Scout Passkey</p>
-          <h3>Palm-vein authentication for secure user access</h3>
+          <h3>Palm-vein authentication for laptops, desktops and individual workstations</h3>
           <p>
-            Designed for organisations that want high-assurance biometric authentication without relying only on
-            remembered passwords, possession factors or mobile approvals.
+            Designed for organisations replacing traditional authentication methods with high-assurance palm-vein
+            authentication.
           </p>
           <a class="button primary" href="scout.html">Explore Scout</a>
         </article>
 
         <article class="product-card">
           <p class="product-label">PalmFaith Sentinel</p>
-          <h3>Authentication support for controlled workstations</h3>
+          <h3>Palm-vein authentication for secure access to restricted areas.</h3>
           <p>
-            Built for environments where access control, identity confirmation and operational reliability must be
-            managed at the workstation level.
+            Designed for organisations replacing traditional access control methods with high-assurance palm-vein
+            authentication.
           </p>
-          <a class="button secondary" href="sentinel.html">Explore Sentinel</a>
+          <a class="button primary" href="sentinel.html">Explore Sentinel</a>
         </article>
       </div>
     </section>
-
     <section id="comparison" class="section comparison-section">
+
       <div class="section-heading">
-        <h2>Authentication Methods</h2>
+        <h2>Which solution fits your organisation?</h2>
         <p>
-          Compare today's most common authentication methods using practical decision criteria.
+          Scout and Sentinel are designed for different environments. Compare their capabilities below to determine
+          which solution best matches your operational and security requirements.
         </p>
       </div>
 
@@ -199,78 +207,60 @@
       </div>
 
       <div class="comparison-legend" aria-label="Comparison symbol explanation">
-        <span><strong class="symbol-positive">✓</strong> Recommended</span>
-        <span><strong class="symbol-warning">△</strong> Depends on implementation</span>
-        <span><strong class="symbol-negative">✕</strong> Not suitable</span>
+        <div class="legend-item">
+          <strong class="symbol-positive">✓</strong>
+          <div>
+            <strong>Strong fit</strong>
+            <p>Recommended for this requirement.</p>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <strong class="symbol-warning">△</strong>
+          <div>
+            <strong>Depends on implementation</strong>
+            <p>Performance depends on design, configuration and operational procedures.</p>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <strong class="symbol-negative">✕</strong>
+          <div>
+            <strong>Limited fit</strong>
+            <p>Additional measures are usually required.</p>
+          </div>
+        </div>
       </div>
+
       <p class="table-scroll-note">
         Swipe horizontally to compare all authentication methods.
       </p>
     </section>
 
-    <section class="section trust-section">
-      <div class="trust-content">
-        <h2>Security-first. Practical second. Commercial only after that.</h2>
+    <section id="contact" class="section contact-section">
+      <div class="section-heading">
+        <h2>Contact</h2>
         <p>
-          The portal is intentionally structured to help serious buyers understand the problem, compare the alternatives
-          and request a controlled pilot before scaling.
+          European assembly and distribution by FIIT B.V. - The Netherlands
         </p>
       </div>
 
-      <div class="trust-list">
-        <div>
-          <h3>For decision makers</h3>
-          <p>Clear business rationale and risk framing.</p>
-        </div>
-        <div>
-          <h3>For IT teams</h3>
-          <p>Authentication logic, implementation questions and pilot criteria.</p>
-        </div>
-        <div>
-          <h3>For procurement</h3>
-          <p>A route from product interest to structured evaluation.</p>
-        </div>
-      </div>
-    </section>
+      <div class="contact-card">
+        <p><strong>FaithWorks Europe</strong></p>
+        <p>FIIT B.V.</p>
 
-    <section id="pilot" class="section pilot-section">
-      <div class="pilot-card">
-        <h2>Request pilot information</h2>
         <p>
-          Receive practical information about product availability, pilot scope, technical requirements and commercial
-          next steps.
+          Marconistraat 28<br>
+          2665 JE Lansingerland<br>
+          Rotterdam The Hague Metropolitan Area<br>
+          The Netherlands
         </p>
 
-        <form class="pilot-form">
-          <label>
-            Name
-            <input type="text" name="name" autocomplete="name" />
-          </label>
-
-          <label>
-            Organisation
-            <input type="text" name="organisation" autocomplete="organization" />
-          </label>
-
-          <label>
-            Email
-            <input type="email" name="email" autocomplete="email" />
-          </label>
-
-          <label>
-            Product interest
-            <select name="product">
-              <option value="">Select product</option>
-              <option value="scout">PalmFaith Scout Passkey</option>
-              <option value="sentinel">PalmFaith Sentinel</option>
-              <option value="both">Both products</option>
-            </select>
-          </label>
-
-          <button class="button primary" type="submit">Request information</button>
-        </form>
+        <p><strong>Chamber of Commerce No.:</strong> 75050250</p>
+        <p><strong>VAT No.:</strong> NL860122219B01</p>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">

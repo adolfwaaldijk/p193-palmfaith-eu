@@ -26,7 +26,11 @@ function initialiseNavigation() {
 
     link.addEventListener("click", event => {
 
-      const target = document.querySelector(link.getAttribute("href"));
+      const href = link.getAttribute("href");
+
+      if (!href || href === "#") return;
+
+      const target = document.querySelector(href);
 
       if (!target) return;
 
@@ -201,7 +205,11 @@ function initialiseActiveNavigation() {
 
   const sections = navigationLinks
     .map(link => {
-      const target = document.querySelector(link.getAttribute("href"));
+      const href = link.getAttribute("href");
+
+      if (!href || href === "#") return null;
+
+      const target = document.querySelector(href);
 
       return target
         ? { link, target }
@@ -241,3 +249,25 @@ function initialiseActiveNavigation() {
 
   sections.forEach(section => observer.observe(section.target));
 }
+
+const menuToggle = document.querySelector(".menu-toggle");
+const mainNav = document.querySelector(".main-nav");
+
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    mainNav.classList.toggle("open");
+
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", !expanded);
+  });
+}
+
+const consumerLink = document.querySelector(".coming-soon");
+
+document.querySelectorAll(".coming-soon").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+
+    link.classList.toggle("show-coming-soon");
+  });
+});
