@@ -278,3 +278,22 @@ if (menuToggle && mainNav) {
 
   document.addEventListener("click", closeMenu);
 }
+
+const comingSoonLinks = document.querySelectorAll(".coming-soon");
+
+comingSoonLinks.forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const wasOpen = link.classList.contains("show-coming-soon");
+
+    comingSoonLinks.forEach(item => {
+      item.classList.remove("show-coming-soon");
+    });
+
+    if (!wasOpen) {
+      link.classList.add("show-coming-soon");
+    }
+  });
+});
