@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initialiseNavigation();
   initialiseHeader();
   initialiseDecisionCards();
-  initialisePilotForm();
   initialiseActiveNavigation();
 
 });
@@ -114,79 +113,6 @@ function initialiseDecisionCards() {
       `all .5s ease ${index * 0.08}s`;
 
     observer.observe(card);
-
-  });
-
-}
-
-/* ==========================================================
-   Pilot Form
-========================================================== */
-
-function initialisePilotForm() {
-
-  const form = document.querySelector(".pilot-form");
-
-  if (!form) return;
-
-  form.addEventListener("submit", event => {
-
-    event.preventDefault();
-
-    const name =
-      form.querySelector('[name="name"]').value.trim();
-
-    const organisation =
-      form.querySelector('[name="organisation"]').value.trim();
-
-    const email =
-      form.querySelector('[name="email"]').value.trim();
-
-    const product =
-      form.querySelector('[name="product"]').value;
-
-    if (!name) {
-
-      alert("Please enter your name.");
-      return;
-
-    }
-
-    if (!organisation) {
-
-      alert("Please enter your organisation.");
-      return;
-
-    }
-
-    if (!email) {
-
-      alert("Please enter your email address.");
-      return;
-
-    }
-
-    if (!product) {
-
-      alert("Please select a product.");
-      return;
-
-    }
-
-    console.table({
-
-      name,
-      organisation,
-      email,
-      product
-
-    });
-
-    alert(
-      "Thank you. Your request has been registered."
-    );
-
-    form.reset();
 
   });
 
