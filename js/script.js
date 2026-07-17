@@ -254,37 +254,27 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
 if (menuToggle && mainNav) {
-  menuToggle.addEventListener("click", () => {
-    mainNav.classList.toggle("open");
+  const closeMenu = () => {
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  };
 
-    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", !expanded);
-  });
-}
-
-const consumerLink = document.querySelector(".coming-soon");
-
-const comingSoonLinks = document.querySelectorAll(".coming-soon");
-
-comingSoonLinks.forEach(link => {
-  link.addEventListener("click", event => {
-    event.preventDefault();
+  menuToggle.addEventListener("click", event => {
     event.stopPropagation();
 
-    const wasOpen = link.classList.contains("show-coming-soon");
+    const isOpen = mainNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 
-    comingSoonLinks.forEach(item => {
-      item.classList.remove("show-coming-soon");
-    });
+  mainNav.addEventListener("click", event => {
+    event.stopPropagation();
 
-    if (!wasOpen) {
-      link.classList.add("show-coming-soon");
+    const clickedLink = event.target.closest("a");
+
+    if (clickedLink && !clickedLink.classList.contains("coming-soon")) {
+      closeMenu();
     }
   });
-});
 
-document.addEventListener("click", () => {
-  comingSoonLinks.forEach(link => {
-    link.classList.remove("show-coming-soon");
-  });
-});
+  document.addEventListener("click", closeMenu);
+}
