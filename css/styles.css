@@ -822,10 +822,10 @@ select:focus {
 .hero-image {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow);
-  background: var(--surface);
+  background: var(--bg);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .hero-image img {
@@ -834,6 +834,38 @@ select:focus {
   height: 100%;
   object-fit: cover;
   object-position: center;
+
+  /*
+    Laat de afbeelding aan alle buitenranden geleidelijk
+    overgaan in de achtergrond van de website.
+  */
+  -webkit-mask-image:
+    linear-gradient(to right,
+      transparent 0%,
+      black 7%,
+      black 93%,
+      transparent 100%),
+    linear-gradient(to bottom,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%);
+
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(to right,
+      transparent 0%,
+      black 7%,
+      black 93%,
+      transparent 100%),
+    linear-gradient(to bottom,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%);
+
+  mask-composite: intersect;
 }
 
 .consumer-note {
@@ -975,7 +1007,37 @@ select:focus {
 @media (max-width: 560px) {
   .hero-image {
     aspect-ratio: 4 / 3;
-    border-radius: 12px;
+    border-radius: 0;
+  }
+
+  .hero-image img {
+    /*
+      Op een klein scherm minder sterke zijwaartse vervaging,
+      zodat hand, pictogrammen en producten niet verloren gaan.
+    */
+    -webkit-mask-image:
+      linear-gradient(to right,
+        transparent 0%,
+        black 3%,
+        black 97%,
+        transparent 100%),
+      linear-gradient(to bottom,
+        transparent 0%,
+        black 6%,
+        black 94%,
+        transparent 100%);
+
+    mask-image:
+      linear-gradient(to right,
+        transparent 0%,
+        black 3%,
+        black 97%,
+        transparent 100%),
+      linear-gradient(to bottom,
+        transparent 0%,
+        black 6%,
+        black 94%,
+        transparent 100%);
   }
 }
 
@@ -1045,4 +1107,314 @@ select:focus {
 
 .contact-card p:last-child {
   margin-bottom: 0;
+}
+/* ==========================================================
+   SCOUT PRODUCT PAGE
+========================================================== */
+
+.product-page main {
+  overflow: hidden;
+}
+
+.scout-hero {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 88px);
+  min-height: calc(100vh - 86px);
+}
+
+.scout-hero h1 {
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  line-height: .98;
+  letter-spacing: -.05em;
+  margin-bottom: 18px;
+}
+
+.product-kicker {
+  color: var(--primary);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.scout-tagline {
+  color: var(--text-soft);
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 34px;
+}
+
+.scout-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.scout-hero-media {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+
+.scout-hero-media img {
+  width: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+
+.scout-section-alt {
+  position: relative;
+}
+
+.scout-section-alt::before {
+  content: "";
+  position: absolute;
+  inset: 0 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,.025);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  z-index: -1;
+}
+
+.scout-card-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.scout-card-grid-five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.scout-card-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.scout-info-card {
+  min-height: 100%;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, rgba(27,48,75,.86), rgba(19,35,56,.92));
+  box-shadow: 0 12px 36px rgba(0,0,0,.18);
+}
+
+.scout-info-card h3 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+.scout-info-card p {
+  color: var(--text-soft);
+  font-size: .96rem;
+}
+
+.text-link {
+  display: inline-flex;
+  margin-top: 18px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.scout-spec-heading {
+  text-align: center;
+  max-width: none;
+}
+
+.spec-tabs {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(13,27,45,.76);
+  box-shadow: var(--shadow);
+}
+
+.spec-tab-list {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,.025);
+}
+
+.spec-tab {
+  flex: 1 0 auto;
+  min-width: 150px;
+  padding: 20px 22px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--text-soft);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.spec-tab:hover,
+.spec-tab:focus-visible {
+  color: #fff;
+  background: rgba(255,255,255,.035);
+  outline: none;
+}
+
+.spec-tab.is-active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.spec-panel {
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.spec-panel[hidden] {
+  display: none;
+}
+
+.spec-product-image {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.spec-product-image img {
+  width: 100%;
+}
+
+.spec-table-wrap {
+  overflow-x: auto;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.spec-table th,
+.spec-table td {
+  padding: 17px 18px;
+  border-bottom: 1px solid rgba(184,200,216,.18);
+}
+
+.spec-table th {
+  width: 38%;
+  color: var(--text-soft);
+  text-align: left;
+  font-weight: 700;
+}
+
+.spec-table td {
+  color: var(--text);
+  text-align: right;
+}
+
+.spec-table tr:nth-child(even) {
+  background: rgba(255,255,255,.025);
+}
+
+.spec-note {
+  margin-top: 24px;
+  color: var(--text-muted);
+  font-size: .88rem;
+}
+
+.package-card {
+  max-width: 760px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.package-card ul {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+
+.package-card li {
+  position: relative;
+  padding-left: 30px;
+  color: var(--text-soft);
+}
+
+.package-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 800;
+}
+
+.scout-next-step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 36px;
+}
+
+.scout-next-step h2 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  margin-bottom: 12px;
+}
+
+.scout-next-step p:not(.product-kicker) {
+  color: var(--text-soft);
+}
+
+@media (max-width: 1180px) {
+  .scout-card-grid-five {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .scout-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .scout-hero-media {
+    order: -1;
+  }
+
+  .scout-hero-media img {
+    min-height: 0;
+  }
+
+  .scout-card-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .scout-next-step {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .scout-card-grid-five {
+    grid-template-columns: 1fr;
+  }
+
+  .scout-hero-actions {
+    flex-direction: column;
+  }
+
+  .spec-panel {
+    padding: 20px 16px;
+  }
+
+  .spec-table {
+    min-width: 560px;
+  }
 }
