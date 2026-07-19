@@ -224,58 +224,32 @@ comingSoonLinks.forEach(link => {
   });
 });
 /* ==========================================================
-   Product specification tabs
+   Cinematic hero
 ========================================================== */
+function initialiseCinematicHero() {
+  const stage = document.querySelector('.cinematic-stage');
+  if (!stage) return;
 
-function initialiseSpecificationTabs() {
-  const tabGroups = document.querySelectorAll("[data-tabs]");
+  const skipButton = stage.querySelector('.cinematic-skip');
+  const replayButton = stage.querySelector('.cinematic-replay');
 
-  tabGroups.forEach(group => {
-    const tabs = Array.from(group.querySelectorAll("[data-tab]"));
-    const panels = Array.from(group.querySelectorAll("[data-panel]"));
+  if (skipButton) {
+    skipButton.addEventListener('click', () => {
+      stage.classList.add('is-skipped');
+    });
+  }
 
-    if (!tabs.length || !panels.length) return;
+  if (replayButton) {
+    replayButton.addEventListener('click', () => {
+      stage.classList.add('is-restarting');
+      stage.classList.remove('is-skipped');
+      void stage.offsetWidth;
 
-    const activateTab = activeTab => {
-      const targetName = activeTab.dataset.tab;
-
-      tabs.forEach(tab => {
-        const isActive = tab === activeTab;
-        tab.classList.toggle("is-active", isActive);
-        tab.setAttribute("aria-selected", String(isActive));
-        tab.setAttribute("tabindex", isActive ? "0" : "-1");
-      });
-
-      panels.forEach(panel => {
-        const isActive = panel.dataset.panel === targetName;
-        panel.classList.toggle("is-active", isActive);
-        panel.hidden = !isActive;
-      });
-    };
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => activateTab(tab));
-
-      tab.addEventListener("keydown", event => {
-        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-
-        event.preventDefault();
-        let nextIndex = index;
-
-        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
-        if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
-        if (event.key === "Home") nextIndex = 0;
-        if (event.key === "End") nextIndex = tabs.length - 1;
-
-        tabs[nextIndex].focus();
-        activateTab(tabs[nextIndex]);
+      window.requestAnimationFrame(() => {
+        stage.classList.remove('is-restarting');
       });
     });
-  });
+  }
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initialiseSpecificationTabs);
-} else {
-  initialiseSpecificationTabs();
-}
+document.addEventListener('DOMContentLoaded', initialiseCinematicHero);

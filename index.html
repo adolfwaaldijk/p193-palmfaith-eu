@@ -8,7 +8,7 @@
   <title>PalmFaith Europe | Decision Portal</title>
   <meta name="description"
     content="A European decision portal for evaluating PalmFaith Scout Passkey and PalmFaith Sentinel as biometric authentication solutions." />
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260719-beam-right-75">
 </head>
 
 <body>
@@ -37,31 +37,146 @@
 
   </header>
   <main id="top">
-    <section class="hero section">
-      <div class="hero-content">
-        <h1>European palm-vein authentication?</h1>
-        <p class="hero-statement">
-          High-assurance security. Seamless everyday use.
-        </p>
+    <section class="cinematic-hero" aria-label="PalmFaith cinematic introduction">
+      <div class="cinematic-stage" id="cinematic-stage">
+        <div class="cinematic-zone cinematic-zone-hand" aria-hidden="true">
+          <div class="scout-platform">
+            <img class="cinematic-scanner" src="img/cinematic-scout.png" alt="">
+            <span class="scout-label">SCOUT</span>
+          </div>
 
-        <p class="hero-lead">
-          FaithWorks Europe assembles and supplies PalmFaith products in Europe, helping organisations evaluate, test
-          and deploy palm-vein authentication for secure digital and physical access.
-        </p>
+          <div class="scan-beam-wrap">
+            <svg class="scan-beam" viewBox="0 0 420 520" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="beamGlow" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0" stop-color="#ff2b19" stop-opacity="0.95"/>
+                  <stop offset="0.2" stop-color="#ff3928" stop-opacity="0.78"/>
+                  <stop offset="0.72" stop-color="#ff5a47" stop-opacity="0.45"/>
+                  <stop offset="1" stop-color="#ff7b66" stop-opacity="0.16"/>
+                </linearGradient>
+                <filter id="beamBlur" x="-40%" y="-20%" width="180%" height="150%">
+                  <feGaussianBlur stdDeviation="8"/>
+                </filter>
+                <clipPath id="beamClip">
+                  <path d="M194 500 L226 500 L350 56 L70 56 Z"/>
+                </clipPath>
+              </defs>
+              <path class="beam-haze" d="M194 500 L226 500 L350 56 L70 56 Z"/>
+              <g class="beam-streams" clip-path="url(#beamClip)">
+                <line class="beam-stream odd"  x1="200" y1="510" x2="82"  y2="40"/>
+                <line class="beam-stream even" x1="201" y1="510" x2="98"  y2="40"/>
+                <line class="beam-stream odd"  x1="202" y1="510" x2="114" y2="40"/>
+                <line class="beam-stream even" x1="203" y1="510" x2="130" y2="40"/>
+                <line class="beam-stream odd"  x1="204" y1="510" x2="146" y2="40"/>
+                <line class="beam-stream even" x1="205" y1="510" x2="162" y2="40"/>
+                <line class="beam-stream odd"  x1="206" y1="510" x2="178" y2="40"/>
+                <line class="beam-stream even" x1="207" y1="510" x2="194" y2="40"/>
+                <line class="beam-stream odd"  x1="208" y1="510" x2="210" y2="40"/>
+                <line class="beam-stream even" x1="209" y1="510" x2="226" y2="40"/>
+                <line class="beam-stream odd"  x1="210" y1="510" x2="242" y2="40"/>
+                <line class="beam-stream even" x1="211" y1="510" x2="258" y2="40"/>
+                <line class="beam-stream odd"  x1="212" y1="510" x2="274" y2="40"/>
+                <line class="beam-stream even" x1="213" y1="510" x2="290" y2="40"/>
+                <line class="beam-stream odd"  x1="214" y1="510" x2="306" y2="40"/>
+                <line class="beam-stream even" x1="215" y1="510" x2="322" y2="40"/>
+                <line class="beam-stream odd"  x1="216" y1="510" x2="338" y2="40"/>
+              </g>
+            </svg>
+          </div>
 
-        <div class="hero-actions">
-          <a class="button primary" href="#products">
-            Returning visitor? Go directly to Products
-          </a>
-
-          <a class="button primary" href="#decision">
-            New to FaithWorks Europe? Start here
-          </a>
+          <div class="cinematic-hand-wrap">
+            <img class="cinematic-hand" src="img/cinematic-woman-hand.png" alt="">
+            <span class="palm-reflection"></span>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-image" aria-label="Palm-vein authentication device in use">
-        <img src="img/FW-hero01-landing_page.png" alt="Palm-vein authentication device scanning a user's hand" />
+        <div class="cinematic-zone cinematic-zone-icons" aria-hidden="true">
+          <div class="cinematic-icon icon-two">
+            <svg viewBox="0 0 100 100" role="img" aria-label="Palm veins">
+              <circle cx="50" cy="50" r="45"/>
+              <path class="palm-outline" transform="translate(-8 -2)" d="M37 70V41c0-5 7-5 7 0v15-27c0-5 7-5 7 0v25-30c0-5 7-5 7 0v30-25c0-5 7-5 7 0v30l5-8c3-5 10-2 8 4l-9 18c-3 7-9 11-17 11H48c-6 0-11-5-11-14Z"/>
+              <g class="veins" transform="translate(-8 -2)">
+                <path d="M52 74V45M52 58L42 49M52 60L63 48M48 52L47 37M57 53L60 35M52 67L43 60M53 69L64 59"/>
+              </g>
+              <path class="verification-check" d="M29 51l13 14 29-31"/>
+            </svg>
+          </div>
+
+          <div class="cinematic-flow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 80 50">
+              <path d="M5 25H67M49 7l18 18-18 18"/>
+            </svg>
+          </div>
+
+          <div class="cinematic-icon icon-four">
+            <svg viewBox="0 0 100 100" role="img" aria-label="Secure">
+              <circle cx="50" cy="50" r="45"/>
+              <rect x="31" y="45" width="38" height="32" rx="5"/>
+              <path class="lock-shackle" d="M39 45V35C39 20 61 20 61 35V45"/>
+              <circle cx="50" cy="60" r="3"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="cinematic-zone cinematic-zone-products" aria-hidden="true">
+          <div class="product-reveal product-reveal-scout">
+            <svg class="product-scan-bundle product-scan-scout" viewBox="0 0 120 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <clipPath id="scoutProductBeamClip">
+                  <path d="M56 100 L64 100 L112 0 L8 0 Z"/>
+                </clipPath>
+              </defs>
+              <path class="product-beam-haze" d="M56 100 L64 100 L112 0 L8 0 Z"/>
+              <g clip-path="url(#scoutProductBeamClip)">
+                <line class="product-beam-stream odd" x1="60" y1="102" x2="14" y2="-2"/>
+                <line class="product-beam-stream even" x1="60" y1="102" x2="30" y2="-2"/>
+                <line class="product-beam-stream odd" x1="60" y1="102" x2="46" y2="-2"/>
+                <line class="product-beam-stream even" x1="60" y1="102" x2="60" y2="-2"/>
+                <line class="product-beam-stream odd" x1="60" y1="102" x2="74" y2="-2"/>
+                <line class="product-beam-stream even" x1="60" y1="102" x2="90" y2="-2"/>
+                <line class="product-beam-stream odd" x1="60" y1="102" x2="106" y2="-2"/>
+              </g>
+            </svg>
+            <img src="img/cinematic-scout.png" alt="PalmFaith Scout">
+            <strong>Scout</strong>
+          </div>
+          <div class="product-reveal product-reveal-sentinel">
+            <svg class="product-scan-bundle product-scan-sentinel" viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <clipPath id="sentinelProductBeamClip">
+                  <path d="M120 36 L120 44 L0 76 L0 4 Z"/>
+                </clipPath>
+              </defs>
+              <path class="product-beam-haze" d="M120 36 L120 44 L0 76 L0 4 Z"/>
+              <g clip-path="url(#sentinelProductBeamClip)">
+                <line class="product-beam-stream odd" x1="122" y1="40" x2="-2" y2="8"/>
+                <line class="product-beam-stream even" x1="122" y1="40" x2="-2" y2="18"/>
+                <line class="product-beam-stream odd" x1="122" y1="40" x2="-2" y2="29"/>
+                <line class="product-beam-stream even" x1="122" y1="40" x2="-2" y2="40"/>
+                <line class="product-beam-stream odd" x1="122" y1="40" x2="-2" y2="51"/>
+                <line class="product-beam-stream even" x1="122" y1="40" x2="-2" y2="62"/>
+                <line class="product-beam-stream odd" x1="122" y1="40" x2="-2" y2="72"/>
+              </g>
+            </svg>
+            <img src="img/cinematic-sentinel-left.png" alt="PalmFaith Sentinel">
+            <strong>Sentinel</strong>
+          </div>
+        </div>
+
+        <div class="cinematic-copy">
+          <h1>European palm-vein authentication?</h1>
+          <p>Your identity, In the palm of your hand.</p>
+        </div>
+
+        <div class="cinematic-controls">
+          <a class="cinematic-enter" href="#decision">Continue to website ↓</a>
+          <button class="cinematic-skip" type="button">Skip animation</button>
+          <button class="cinematic-replay" type="button">Play again</button>
+        </div>
+
+        <div class="cinematic-progress" aria-hidden="true">
+          <span class="cinematic-progress-fill"></span>
+        </div>
       </div>
     </section>
 
@@ -302,7 +417,7 @@
 
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js?v=20260719-progress-bar"></script>
 </body>
 
 </html>

@@ -1109,312 +1109,1024 @@ select:focus {
   margin-bottom: 0;
 }
 /* ==========================================================
-   SCOUT PRODUCT PAGE
+   CINEMATIC PALMFAITH HERO
 ========================================================== */
-
-.product-page main {
-  overflow: hidden;
-}
-
-.scout-hero {
-  display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  align-items: center;
-  gap: clamp(36px, 6vw, 88px);
-  min-height: calc(100vh - 86px);
-}
-
-.scout-hero h1 {
-  font-size: clamp(3rem, 7vw, 6.2rem);
-  line-height: .98;
-  letter-spacing: -.05em;
-  margin-bottom: 18px;
-}
-
-.product-kicker {
-  color: var(--primary);
-  font-size: .82rem;
-  font-weight: 800;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.scout-tagline {
-  color: var(--text-soft);
-  font-size: clamp(1.45rem, 3vw, 2.35rem);
-  line-height: 1.2;
-  font-weight: 700;
-  margin-bottom: 34px;
-}
-
-.scout-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.scout-hero-media {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #fff;
-}
-
-.scout-hero-media img {
-  width: 100%;
-  min-height: 420px;
-  object-fit: cover;
-}
-
-.scout-section-alt {
+.cinematic-hero {
   position: relative;
+  min-height: calc(100vh - 76px);
+  background: #000;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-.scout-section-alt::before {
-  content: "";
+.cinematic-stage {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 76px);
+  min-height: 680px;
+  background: #000;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cinematic-zone {
   position: absolute;
-  inset: 0 50%;
-  width: 100vw;
-  transform: translateX(-50%);
-  background: rgba(255,255,255,.025);
-  border-top: 1px solid rgba(255,255,255,.06);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  z-index: -1;
+  top: 0;
+  bottom: 0;
+  width: 33.333%;
+}
+.cinematic-zone-hand { left: 0; }
+.cinematic-zone-icons { left: 33.333%; }
+.cinematic-zone-products { left: 66.666%; }
+
+.cinematic-scanner {
+  position: absolute;
+  left: 5%;
+  bottom: 8%;
+  width: 43%;
+  max-width: 310px;
+  opacity: 1;
+  filter: drop-shadow(0 0 22px rgba(255,32,12,.32));
+  z-index: 2;
 }
 
-.scout-card-grid {
-  display: grid;
-  gap: 22px;
+.scanner-vertical-beam {
+  position: absolute;
+  left: 24.5%;
+  bottom: 26%;
+  width: 4px;
+  height: 35%;
+  transform-origin: bottom;
+  background: linear-gradient(to top, rgba(255,37,10,.9), rgba(255,66,24,.82) 45%, rgba(255,80,40,0));
+  box-shadow: 0 0 9px #ff2d12, 0 0 28px rgba(255,40,10,.8);
+  animation: verticalBeamBreath 2.2s ease-in-out infinite;
+  z-index: 1;
 }
 
-.scout-card-grid-five {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+.cinematic-hand-wrap {
+  position: absolute;
+  left: 4%;
+  top: 26%;
+  width: 87%;
+  height: 32%;
+  transform: translateX(-115%);
+  animation: handEnter 3s cubic-bezier(.22,.82,.25,1) 3s forwards;
+  z-index: 4;
 }
 
-.scout-card-grid-three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.scout-info-card {
-  min-height: 100%;
-  padding: 28px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: linear-gradient(145deg, rgba(27,48,75,.86), rgba(19,35,56,.92));
-  box-shadow: 0 12px 36px rgba(0,0,0,.18);
-}
-
-.scout-info-card h3 {
-  font-size: 1.15rem;
-  line-height: 1.3;
-  margin-bottom: 14px;
-}
-
-.scout-info-card p {
-  color: var(--text-soft);
-  font-size: .96rem;
-}
-
-.text-link {
-  display: inline-flex;
-  margin-top: 18px;
-  color: var(--primary);
-  font-weight: 700;
-}
-
-.scout-spec-heading {
-  text-align: center;
-  max-width: none;
-}
-
-.spec-tabs {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: rgba(13,27,45,.76);
-  box-shadow: var(--shadow);
-}
-
-.spec-tab-list {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  border-bottom: 1px solid var(--border);
-  background: rgba(255,255,255,.025);
-}
-
-.spec-tab {
-  flex: 1 0 auto;
-  min-width: 150px;
-  padding: 20px 22px;
-  border: 0;
-  border-bottom: 3px solid transparent;
-  background: transparent;
-  color: var(--text-soft);
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.spec-tab:hover,
-.spec-tab:focus-visible {
-  color: #fff;
-  background: rgba(255,255,255,.035);
-  outline: none;
-}
-
-.spec-tab.is-active {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
-}
-
-.spec-panel {
-  padding: clamp(24px, 4vw, 48px);
-}
-
-.spec-panel[hidden] {
-  display: none;
-}
-
-.spec-product-image {
-  max-width: 960px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-}
-
-.spec-product-image img {
+.cinematic-hand {
   width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.58));
 }
 
-.spec-table-wrap {
-  overflow-x: auto;
+.palm-scan-line {
+  position: absolute;
+  left: 18%;
+  top: 61%;
+  width: 34%;
+  height: 3px;
+  opacity: 0;
+  background: linear-gradient(90deg, rgba(255,30,12,0), #ff2b0d 18%, #fff 50%, #ff2b0d 82%, rgba(255,30,12,0));
+  box-shadow: 0 0 7px #ff2a0b, 0 0 18px rgba(255,38,10,.85);
+  animation: scanPalm 2s linear 6s infinite, scanAppear .2s linear 6s forwards;
 }
 
-.spec-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 640px;
-}
-
-.spec-table th,
-.spec-table td {
-  padding: 17px 18px;
-  border-bottom: 1px solid rgba(184,200,216,.18);
-}
-
-.spec-table th {
+.palm-glow {
+  position: absolute;
+  left: 16%;
+  top: 48%;
   width: 38%;
-  color: var(--text-soft);
-  text-align: left;
-  font-weight: 700;
+  height: 24%;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(255,40,10,.48), rgba(255,25,8,.12) 48%, transparent 72%);
+  filter: blur(9px);
+  animation: palmGlowPulse 2s ease-in-out 6s infinite, scanAppear .2s linear 6s forwards;
+  mix-blend-mode: screen;
 }
 
-.spec-table td {
-  color: var(--text);
-  text-align: right;
-}
-
-.spec-table tr:nth-child(even) {
-  background: rgba(255,255,255,.025);
-}
-
-.spec-note {
-  margin-top: 24px;
-  color: var(--text-muted);
-  font-size: .88rem;
-}
-
-.package-card {
-  max-width: 760px;
-  padding: 32px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.package-card ul {
-  list-style: none;
-  display: grid;
-  gap: 16px;
-}
-
-.package-card li {
-  position: relative;
-  padding-left: 30px;
-  color: var(--text-soft);
-}
-
-.package-card li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--success);
-  font-weight: 800;
-}
-
-.scout-next-step {
+.cinematic-zone-icons {
+  left: 33.333%;
+  width: 25.167%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 36px;
+  justify-content: center;
+  gap: clamp(8px, 1vw, 14px);
+  padding-bottom: 5%;
 }
 
-.scout-next-step h2 {
-  font-size: clamp(2rem, 4vw, 3.1rem);
-  margin-bottom: 12px;
+.cinematic-icon {
+  flex: 0 0 clamp(90px, 9vw, 140px);
+  width: clamp(90px, 9vw, 140px);
+  height: clamp(90px, 9vw, 140px);
+  opacity: 0;
+  transform: scale(.84);
+  filter: drop-shadow(0 0 18px rgba(0,166,255,.25));
+}
+.cinematic-icon svg { width: 100%; height: 100%; overflow: visible; }
+.cinematic-icon circle,
+.cinematic-icon path,
+.cinematic-icon rect {
+  fill: none;
+  stroke: #8bd9ff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-two { animation: iconReveal .9s ease 8s forwards; }
+.icon-four { animation: iconReveal .9s ease 14s forwards; }
+.icon-two .veins path {
+  stroke: #ff2a12;
+  stroke-width: 3.4;
+  animation: veinPulse 1.5s ease-in-out 8.7s infinite;
 }
 
-.scout-next-step p:not(.product-kicker) {
-  color: var(--text-soft);
+.icon-two .verification-check {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  animation: verificationCheckReveal .6s ease 10s forwards;
 }
 
-@media (max-width: 1180px) {
-  .scout-card-grid-five {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.cinematic-flow-arrow {
+  flex: 0 0 clamp(36px, 4vw, 58px);
+  width: clamp(36px, 4vw, 58px);
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: flowArrowReveal .6s ease 12s forwards;
+}
+
+.cinematic-flow-arrow svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cinematic-flow-arrow path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cinematic-zone-products {
+  left: 58.5%;
+  width: 41.5%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12%;
+  padding: 0 3% 17%;
+}
+.product-reveal {
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px) scale(.94);
+  text-align: center;
+  animation: productsReveal 1.2s cubic-bezier(.2,.8,.2,1) 17s forwards;
+}
+.product-reveal-scout { width: 46%; }
+.product-reveal-sentinel { width: 34%; animation-delay: 17.35s; }
+.product-reveal img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 18px 34px rgba(0,0,0,.76));
+}
+.product-reveal strong {
+  display: block;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: #fff;
+  font-size: .92rem;
+}
+.product-scan-bundle {
+  position: absolute;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.product-scan-scout {
+  left: calc(58% - 50px);
+  top: calc(37% - 76px);
+  width: 100px;
+  height: 76px;
+}
+
+.product-scan-sentinel {
+  left: calc(50% - 110px);
+  top: calc(58% - 27px);
+  width: 110px;
+  height: 54px;
+}
+
+.product-beam-haze {
+  fill: rgba(255, 55, 35, .30);
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  animation: productBeamPulse 1.8s ease-in-out 17s infinite;
+}
+
+.product-beam-stream {
+  fill: none;
+  stroke: #ff3b28;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 6 10 2 12;
+  opacity: .78;
+  filter: drop-shadow(0 0 2px rgba(255, 47, 24, .95));
+}
+
+.product-beam-stream.odd {
+  animation: streamUp 1.05s linear 17s infinite;
+}
+
+.product-beam-stream.even {
+  animation: streamDown 1.05s linear 17s infinite;
+}
+
+.product-reveal img,
+.product-reveal strong {
+  position: relative;
+  z-index: 2;
+}
+
+.cinematic-copy {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 4%;
+  bottom: auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: copyReveal 1.2s ease 1s forwards;
+  z-index: 10;
+}
+.cinematic-copy h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.1rem, 4.2vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  text-shadow: 0 0 22px rgba(0,0,0,.9);
+}
+.cinematic-copy p {
+  margin: 14px 0 0;
+  color: #dceeff;
+  font-size: clamp(1.05rem, 1.8vw, 1.8rem);
+  letter-spacing: .01em;
+}
+
+.cinematic-controls {
+  position: absolute;
+  top: auto;
+  bottom: 5.2%;
+  left: 50%;
+  right: auto;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+.cinematic-controls a,
+.cinematic-controls button {
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(0,0,0,.38);
+  color: #fff;
+  font: inherit;
+  font-size: .85rem;
+  padding: 10px 14px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  text-decoration: none;
+}
+.cinematic-controls a:hover,
+.cinematic-controls button:hover { border-color: rgba(139,217,255,.8); }
+
+.cinematic-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 2.2%;
+  width: min(520px, 68vw);
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.cinematic-progress-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: rgba(139,217,255,.82);
+  box-shadow: 0 0 7px rgba(139,217,255,.24);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: cinematicProgress 19s linear forwards;
+}
+
+@keyframes handEnter { to { transform: translateX(0); } }
+@keyframes verticalBeamBreath { 0%,100% { opacity:.68; transform:scaleY(.94);} 50% {opacity:1; transform:scaleY(1.04);} }
+@keyframes scanAppear { to { opacity: 1; } }
+@keyframes scanPalm { 0% { transform: translateX(0); } 50% { transform: translateX(82%); } 100% { transform: translateX(0); } }
+@keyframes palmGlowPulse { 0%,100% { opacity:.24; transform:translateX(0) scaleX(.92); } 50% { opacity:.62; transform:translateX(24%) scaleX(1.08); } }
+@keyframes iconReveal { to { opacity:1; transform:scale(1); } }
+@keyframes verificationCheckReveal { to { opacity: 1; } }
+@keyframes flowArrowReveal { to { opacity: 1; transform: translateX(0); } }
+@keyframes veinPulse { 0%,100% { opacity:.42; filter:drop-shadow(0 0 1px #ff2a12);} 50% {opacity:1; filter:drop-shadow(0 0 7px #ff2a12);} }
+@keyframes productsReveal { to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes productBeamPulse { 0%,100% {opacity:.45;} 50% {opacity:1;} }
+@keyframes copyReveal { to { opacity:1; transform:translateY(0);} }
+@keyframes cinematicProgress { to { transform:scaleX(1); } }
+
+.icon-four .lock-shackle {
+  transform-box: view-box;
+  transform-origin: 61px 45px;
+  animation: lockShackleOpen 2s ease-in-out 15s forwards;
+}
+
+@keyframes lockShackleOpen {
+  0% {
+    d: path("M39 37V35C39 20 61 20 61 35V45");
+    transform: rotate(0deg);
   }
+  50%, 100% {
+    d: path("M39 37V35C39 20 61 20 61 35V45");
+    transform: rotate(68deg);
+  }
+}
+
+.cinematic-stage.is-skipped * { animation-delay: 0s !important; animation-duration: .45s !important; }
+.cinematic-stage.is-restarting * { animation: none !important; }
+.cinematic-stage.is-skipped .cinematic-hand-wrap { transform: translateX(0); }
+.cinematic-stage.is-skipped .palm-scan-line,
+.cinematic-stage.is-skipped .palm-glow,
+.cinematic-stage.is-skipped .cinematic-icon,
+.cinematic-stage.is-skipped .product-reveal,
+.cinematic-stage.is-skipped .cinematic-copy { opacity: 1; transform: none; }
+.cinematic-stage.is-skipped .cinematic-progress-fill {
+  animation: none !important;
+  transform: scaleX(1);
 }
 
 @media (max-width: 900px) {
-  .scout-hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
+  .cinematic-stage { min-height: 780px; height: calc(100vh - 70px); }
+  .cinematic-zone-hand { width: 42%; }
+  .cinematic-zone-icons { left: 42%; width: 28%; gap: 9px; }
+  .cinematic-icon { flex-basis: 70px; width: 70px; height: 70px; }
+  .cinematic-flow-arrow { flex-basis: 32px; width: 32px; }
+  .cinematic-zone-products { left: 70%; width: 30%; flex-direction: column; align-items: center; justify-content: center; gap: 26px; padding: 8% 2% 18%; }
+  .product-reveal-scout { width: 86%; }
+  .product-reveal-sentinel { width: 72%; }
+  .product-reveal img { height: 175px; }
+}
 
-  .scout-hero-media {
-    order: -1;
-  }
+@media (max-width: 640px) {
+  .cinematic-stage { min-height: 720px; height: 82vh; }
+  .cinematic-zone-hand { width: 48%; }
+  .cinematic-zone-icons { left: 48%; width: 25%; gap: 4px; }
+  .cinematic-icon { flex-basis: 34px; width: 34px; height: 34px; }
+  .cinematic-flow-arrow { flex-basis: 20px; width: 20px; }
+  .cinematic-zone-products { left: 73%; width: 27%; gap: 18px; padding-bottom: 25%; }
+  .product-reveal-scout { width: 100%; }
+  .product-reveal-sentinel { width: 82%; }
+  .product-reveal img { height: 118px; }
+  .product-reveal strong { font-size:.65rem; }
+  .cinematic-scanner { width: 58%; left: 2%; bottom: 15%; }
+  .scanner-vertical-beam { left: 30%; bottom: 30%; height: 30%; }
+  .cinematic-hand-wrap { left: 1%; top: 31%; width: 98%; }
+  .cinematic-copy { top: 4%; bottom: auto; }
+  .cinematic-copy h1 { font-size: clamp(1.55rem, 7vw, 2.3rem); }
+  .cinematic-copy p { font-size: .95rem; }
+  .cinematic-controls { top: auto; bottom: 5%; left: 50%; right: auto; width: calc(100% - 24px); flex-direction: row; align-items:center; }
+  .cinematic-controls a,.cinematic-controls button { font-size:.72rem; padding:8px 10px; }
+  .cinematic-progress { bottom: 1.8%; width: min(360px, 78vw); }
+}
 
-  .scout-hero-media img {
-    min-height: 0;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-stage *, .cinematic-stage { animation-duration:.01ms !important; animation-delay:0s !important; transition-duration:.01ms !important; }
+  .cinematic-hand-wrap { transform:none; }
+  .cinematic-icon,.product-reveal,.cinematic-copy,.palm-scan-line,.palm-glow { opacity:1; transform:none; }
+  .cinematic-progress-fill { transform:scaleX(1); }
+}
 
-  .scout-card-grid-three {
-    grid-template-columns: 1fr;
-  }
+/* ==========================================================
+   CINEMATIC HERO — SCOUT + MULTI-MOTION V-SCAN OVERRIDES
+   ref.ca.s1 implementation
+========================================================== */
+.cinematic-zone-hand {
+  overflow: hidden;
+  background: #000;
+}
 
-  .scout-next-step {
-    align-items: flex-start;
-    flex-direction: column;
+.scout-platform {
+  position: absolute;
+  left: 13%;
+  bottom: 5.5%;
+  width: 34%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.scout-platform .cinematic-scanner {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  max-width: none;
+  display: block;
+  opacity: 1;
+  filter: brightness(.48) contrast(1.2) saturate(.72)
+          drop-shadow(0 15px 20px rgba(0,0,0,.8))
+          drop-shadow(0 0 16px rgba(255,44,20,.18));
+}
+
+.scout-label { display: none; }
+
+.scan-beam-wrap {
+  position: absolute;
+  left: 5.5%;
+  top: 16.5%;
+  width: 69%;
+  height: 65%;
+  z-index: 3;
+  transform-origin: 50% 94%;
+  animation:
+    beamSway 2s ease-in-out 6s infinite,
+    beamAxialTwist 3.2s ease-in-out 6s infinite;
+  pointer-events: none;
+}
+
+.scan-beam {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.beam-haze {
+  fill: url(#beamGlow);
+  opacity: .36;
+  filter: url(#beamBlur);
+  mix-blend-mode: screen;
+  animation: beamBreathe 1.6s ease-in-out 6s infinite;
+}
+
+.beam-streams {
+  transform-origin: 210px 500px;
+  animation: streamsTwist 2.4s ease-in-out 6s infinite;
+}
+
+.beam-stream {
+  fill: none;
+  stroke: #ff3b28;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-dasharray: 7 12 2 15;
+  opacity: .72;
+  filter: drop-shadow(0 0 3px rgba(255,47,24,.95));
+}
+
+.beam-stream:nth-child(3n) {
+  stroke: #ff7a68;
+  stroke-width: 1.35;
+  opacity: .9;
+}
+
+.beam-stream.odd {
+  animation: streamUp 1.05s linear 6s infinite;
+}
+
+.beam-stream.even {
+  animation: streamDown 1.05s linear 6s infinite;
+}
+
+.cinematic-hand-wrap {
+  left: -3%;
+  top: 21.5%;
+  width: 91%;
+  height: auto;
+  opacity: 1;
+  transform: translateX(118%);
+  animation: handEnterTipsFirst 3s cubic-bezier(.2,.78,.2,1) 3s forwards;
+  z-index: 6;
+}
+
+.cinematic-hand {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,.76));
+}
+
+.palm-reflection {
+  position: absolute;
+  left: 13%;
+  top: 56%;
+  width: 47%;
+  height: 26%;
+  opacity: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255,74,47,.78) 0%, rgba(255,35,18,.34) 38%, rgba(255,20,10,0) 72%);
+  filter: blur(9px);
+  mix-blend-mode: screen;
+  transform-origin: 50% 100%;
+  animation: palmReflectionSweep 2s ease-in-out 6s infinite;
+  pointer-events: none;
+}
+
+/* Old single-line scan elements are intentionally disabled. */
+.scanner-vertical-beam,
+.palm-scan-line,
+.palm-glow {
+  display: none !important;
+}
+
+@keyframes handEnterTipsFirst {
+  0%   { transform: translateX(118%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes streamUp {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -72; }
+}
+
+@keyframes streamDown {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 72; }
+}
+
+@keyframes beamSway {
+  0%,100% { transform: rotate(-4.8deg); }
+  50%     { transform: rotate(7.5deg); }
+}
+
+@keyframes beamAxialTwist {
+  0%,100% { scale: .94 1; skew: -1.6deg 0deg; }
+  50%     { scale: 1.04 1; skew: 1.6deg 0deg; }
+}
+
+@keyframes streamsTwist {
+  0%,100% { transform: scaleX(.84); }
+  50%     { transform: scaleX(1.08); }
+}
+
+@keyframes beamBreathe {
+  0%,100% { opacity: .24; }
+  50%     { opacity: .48; }
+}
+
+@keyframes palmReflectionSweep {
+  0%,100% {
+    opacity: .28;
+    transform: translateX(-12%) scaleX(.76);
+  }
+  50% {
+    opacity: .82;
+    transform: translateX(18%) scaleX(1.12);
   }
 }
 
-@media (max-width: 620px) {
-  .scout-card-grid-five {
-    grid-template-columns: 1fr;
-  }
+.cinematic-stage.is-skipped .scan-beam-wrap,
+.cinematic-stage.is-skipped .beam-stream,
+.cinematic-stage.is-skipped .beam-streams,
+.cinematic-stage.is-skipped .beam-haze,
+.cinematic-stage.is-skipped .palm-reflection {
+  animation-delay: 0s !important;
+}
 
-  .scout-hero-actions {
-    flex-direction: column;
-  }
+@media (max-width: 900px) {
+  .scout-platform { left: 10%; bottom: 8%; width: 40%; }
+  .scan-beam-wrap { left: 1%; top: 18%; width: 78%; height: 62%; }
+  .cinematic-hand-wrap { left: -5%; top: 25%; width: 100%; }
+}
 
-  .spec-panel {
-    padding: 20px 16px;
-  }
+@media (max-width: 640px) {
+  .scout-platform { left: 7%; bottom: 13%; width: 48%; }
+  .scan-beam-wrap { left: -5%; top: 24%; width: 90%; height: 53%; }
+  .cinematic-hand-wrap { left: -8%; top: 31%; width: 108%; }
+}
 
-  .spec-table {
-    min-width: 560px;
+@media (prefers-reduced-motion: reduce) {
+  .scan-beam-wrap,
+  .beam-stream,
+  .beam-streams,
+  .beam-haze,
+  .palm-reflection { animation: none !important; }
+  .cinematic-hand-wrap { transform: translateX(0); }
+  .palm-reflection { opacity: .45; }
+}
+
+/* ==========================================================
+   CINEMATIC HERO — CORRECTION PASS 003
+   - flat, readable Scout
+   - hand enters from left
+   - beam remains behind the hand
+   - moving palm/finger illumination
+   - no legacy icon remnants
+========================================================== */
+
+.scout-platform {
+  left: 12%;
+  bottom: 5.2%;
+  width: 38%;
+  isolation: isolate;
+  perspective: 900px;
+}
+
+.scout-platform::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -18%;
+  right: -18%;
+  top: -48%;
+  bottom: -34%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 54%,
+      rgba(255,255,255,.20) 0%,
+      rgba(214,229,243,.10) 24%,
+      rgba(255,56,32,.09) 46%,
+      rgba(0,0,0,0) 72%);
+  filter: blur(13px);
+  opacity: .94;
+  pointer-events: none;
+}
+
+.scout-platform::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 2%;
+  right: 2%;
+  bottom: -12%;
+  height: 34%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse,
+    rgba(219,232,244,.28) 0%,
+    rgba(127,150,170,.12) 40%,
+    rgba(0,0,0,0) 74%);
+  filter: blur(10px);
+  transform: scaleX(1.12);
+  pointer-events: none;
+}
+
+.scout-platform .cinematic-scanner {
+  width: 100%;
+  opacity: 1;
+  transform: rotateZ(-2deg) scaleY(.84);
+  transform-origin: 50% 76%;
+  filter:
+    brightness(.88)
+    contrast(1.14)
+    saturate(.84)
+    drop-shadow(0 18px 19px rgba(0,0,0,.88))
+    drop-shadow(0 0 13px rgba(215,230,244,.15))
+    drop-shadow(0 0 17px rgba(255,52,28,.22));
+}
+
+.scout-label {
+  display: block;
+  position: absolute;
+  left: 62%;
+  bottom: 23%;
+  z-index: 7;
+  color: rgba(255,255,255,.88);
+  font-size: clamp(.48rem,.72vw,.72rem);
+  font-weight: 700;
+  letter-spacing: .13em;
+  transform: rotate(-4deg);
+  text-shadow: 0 1px 4px rgba(0,0,0,.95);
+  pointer-events: none;
+}
+
+/* The V bundle is below the hand in the stacking order. */
+.scan-beam-wrap {
+  z-index: 3;
+}
+
+.cinematic-hand-wrap {
+  left: -3%;
+  top: 21.5%;
+  width: 91%;
+  opacity: 1;
+  transform: translateX(-118%);
+  animation: handEnterFromLeft 3s cubic-bezier(.16,.82,.22,1) 3s forwards;
+  z-index: 8;
+  isolation: isolate;
+}
+
+.cinematic-hand {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter:
+    brightness(1.02)
+    contrast(1.04)
+    drop-shadow(0 12px 20px rgba(0,0,0,.82));
+}
+
+/* A soft white fill keeps the fingers readable without showing a spotlight cone. */
+.cinematic-hand-wrap::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: 48%;
+  top: 38%;
+  width: 48%;
+  height: 30%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 48% 46%,
+    rgba(255,255,255,.17) 0%,
+    rgba(232,238,244,.08) 38%,
+    rgba(255,255,255,0) 74%);
+  filter: blur(12px);
+  mix-blend-mode: screen;
+  opacity: .82;
+  pointer-events: none;
+}
+
+/* Red light touching the underside of the fingers; it weakens when the bundle is centred on the palm. */
+.cinematic-hand-wrap::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: 54%;
+  top: 51%;
+  width: 39%;
+  height: 19%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse,
+    rgba(255,70,42,.54) 0%,
+    rgba(255,33,18,.22) 40%,
+    rgba(255,20,10,0) 76%);
+  filter: blur(8px);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: fingerReflection 2s ease-in-out 6s infinite;
+  pointer-events: none;
+}
+
+.palm-reflection {
+  z-index: 5;
+  left: 14%;
+  top: 52%;
+  width: 48%;
+  height: 27%;
+  opacity: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 50%,
+    rgba(255,92,59,.86) 0%,
+    rgba(255,45,24,.42) 33%,
+    rgba(255,24,12,.10) 58%,
+    rgba(255,20,10,0) 76%);
+  filter: blur(8px);
+  mix-blend-mode: screen;
+  transform-origin: 50% 100%;
+  animation: palmReflectionSweepCorrected 2s ease-in-out 6s infinite;
+}
+
+@keyframes handEnterFromLeft {
+  from { transform: translateX(-118%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes palmReflectionSweepCorrected {
+  0%,100% {
+    opacity: .42;
+    transform: translateX(-11%) scaleX(.72);
   }
+  50% {
+    opacity: .88;
+    transform: translateX(17%) scaleX(1.08);
+  }
+}
+
+@keyframes fingerReflection {
+  0%,100% {
+    opacity: .48;
+    transform: translateX(-13%) scaleX(.82);
+  }
+  50% {
+    opacity: .18;
+    transform: translateX(8%) scaleX(.96);
+  }
+}
+
+/* Explicitly suppress any obsolete graphic fragments. */
+.cinematic-hand-wrap .legacy-icon,
+.cinematic-zone-hand .legacy-icon,
+.cinematic-zone-hand .icon-fragment {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .scout-platform { left: 9%; bottom: 8%; width: 43%; }
+  .cinematic-hand-wrap { left: -6%; top: 24%; width: 101%; }
+}
+
+@media (max-width: 640px) {
+  .scout-platform { left: 5%; bottom: 13%; width: 52%; }
+  .cinematic-hand-wrap { left: -10%; top: 30%; width: 112%; }
+  .scout-label { left: 61%; bottom: 24%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-hand-wrap { transform: translateX(0); animation: none !important; }
+  .cinematic-hand-wrap::before,
+  .palm-reflection { animation: none !important; opacity: .34; }
+}
+
+/* ==========================================================
+   CINEMATIC HERO — CORRECTION PASS 004
+   Requested fixes: label, beam origin, shadow, thumb, beam cap
+========================================================== */
+
+/* 1. Product name lower, centred, and reduced to match the product reveal labels. */
+.scout-label {
+  display: block;
+  left: 50%;
+  bottom: 2.5%;
+  transform: translateX(-50%);
+  font-size: clamp(.42rem, .56vw, .60rem);
+  line-height: 1;
+  letter-spacing: .16em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* 2. Align the bundle's narrow origin with the Scout's reading window. */
+.scan-beam-wrap {
+  left: -5%;
+  top: 30%;
+  width: 69%;
+  height: 51%;
+  overflow: hidden;
+  clip-path: polygon(11% 0, 89% 0, 59% 100%, 41% 100%);
+}
+
+/* 3. Remove the unattractive white floor shadow. Keep only subtle surface definition. */
+.scout-platform::after { display: none; }
+.scout-platform::before {
+  left: -7%;
+  right: -7%;
+  top: -18%;
+  bottom: 12%;
+  background: radial-gradient(ellipse at 50% 48%,
+    rgba(225,235,244,.13) 0%,
+    rgba(196,211,224,.055) 35%,
+    rgba(255,48,28,.045) 53%,
+    rgba(0,0,0,0) 73%);
+  filter: blur(11px);
+  opacity: .82;
+}
+
+/* 4. Preserve the complete hand/thumb and remove old icon remnants using the cleaned asset. */
+.cinematic-hand-wrap {
+  overflow: visible;
+  clip-path: none;
+}
+.cinematic-hand {
+  content: url("../img/cinematic-woman-hand.png");
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* 5. The bundle stops at the underside of the palm: nothing projects above it. */
+.scan-beam {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 2%, #000 8%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, transparent 2%, #000 8%, #000 100%);
+}
+
+@media (max-width: 900px) {
+  .scan-beam-wrap { left: -8%; top: 34%; width: 76%; height: 47%; }
+  .scout-label { bottom: 2%; font-size: .50rem; }
+}
+
+@media (max-width: 640px) {
+  .scan-beam-wrap { left: -11%; top: 39%; width: 84%; height: 41%; }
+  .scout-label { bottom: 1.5%; font-size: .46rem; }
+}
+
+/* ==========================================================
+   CINEMATIC HERO — CORRECTION PASS 005
+   Animation-only corrections requested 2026-07-18
+========================================================== */
+
+/* Scout: move upward, restore realistic thickness, and remove all white halo/shadow. */
+.scout-platform {
+  left: 12%;
+  bottom: calc(11.1% + 16px);
+  width: 39%;
+  transform: translateY(-18px);
+}
+
+.scout-platform::before,
+.scout-platform::after {
+  display: none !important;
+}
+
+.scout-platform .cinematic-scanner {
+  transform: none;
+  clip-path: none;
+  filter: drop-shadow(0 18px 34px rgba(0,0,0,.76));
+}
+
+/* SCOUT lettering: lower and equal in size to the Scout label in the product reveal. */
+.scout-label {
+  left: 50%;
+  bottom: -1.2%;
+  transform: translate(-50%, 18px);
+  font-size: .92rem;
+  line-height: 1;
+  letter-spacing: .18em;
+  font-weight: 700;
+}
+
+/* Beam origin aligned with the Scout reading window. The visible top is clipped at the palm. */
+.scan-beam-wrap {
+  left: -4.5%;
+  top: 27%;
+  width: 69%;
+  height: 47%;
+  overflow: hidden;
+  clip-path: polygon(11% 15%, 89% 15%, 59% 100%, 41% 100%);
+}
+
+.scan-beam {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent 0%,
+    transparent 14%,
+    #000 18%,
+    #000 100%);
+  mask-image: linear-gradient(to bottom,
+    transparent 0%,
+    transparent 14%,
+    #000 18%,
+    #000 100%);
+}
+
+/* Keep illumination behind the hand so no part of the thumb is visually cut away. */
+.cinematic-hand {
+  position: relative;
+  z-index: 5;
+  content: url("../img/cinematic-woman-hand.png");
+}
+
+.cinematic-hand-wrap::before,
+.cinematic-hand-wrap::after,
+.palm-reflection {
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .scout-platform { left: 9%; bottom: calc(12.6% + 16px); width: 44%; }
+  .scan-beam-wrap { left: -7%; top: 31%; width: 76%; height: 43%; }
+  .scout-label { bottom: -1%; font-size: .80rem; }
+}
+
+@media (min-width: 901px) {
+  .scout-platform {
+    bottom: calc(11.1% + 118.4px - 8vw);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .scout-platform {
+    bottom: calc(12.6% + 16px + clamp(-12px, 89.6px - 11.2vw, 18px));
+  }
+}
+
+@media (max-width: 640px) {
+  .scout-platform {
+    left: 5%;
+    bottom: calc(12% + 92.3px - 14.9vw);
+    width: 54%;
+  }
+  .scan-beam-wrap { left: -10%; top: 36%; width: 84%; height: 38%; }
+  .scout-label { bottom: -1%; font-size: .68rem; }
 }
