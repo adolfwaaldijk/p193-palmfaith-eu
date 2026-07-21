@@ -10,8 +10,149 @@ document.addEventListener("DOMContentLoaded", () => {
   initialiseHeader();
   initialiseDecisionCards();
   initialiseActiveNavigation();
+  initialiseTechnicalTooltips();
 
 });
+
+/* ==========================================================
+   Technical term tooltips
+========================================================== */
+
+const technicalTermDefinitions = {
+  mfa: "MFA (Multi-Factor Authentication) requires users to verify their identity using two or more independent authentication factors, such as a password, a smartphone or a biometric credential.",
+  passkey: "A passkey is a modern, phishing-resistant credential that replaces passwords by using public-key cryptography.",
+  fido2: "FIDO2 is an open authentication standard that enables secure, passwordless sign-in using passkeys and security keys.",
+  passwordless: "Passwordless authentication verifies a user's identity without requiring a traditional password.",
+  biometrics: "Biometric authentication verifies identity using unique physical characteristics such as fingerprints, facial recognition or palm veins.",
+  "palm-vein-authentication": "Palm-vein authentication identifies a user by the unique vein pattern inside the palm, providing a highly secure biometric credential.",
+  "liveness-detection": "Liveness Detection verifies that a real, living person is present during authentication, helping prevent spoofing attacks.",
+  "zero-trust": "Zero Trust is a security model that assumes no user or device is trusted by default and continuously verifies every access request."
+};
+
+function initialiseTechnicalTooltips() {
+  const seenTerms = new Set();
+  const terms = Array.from(
+    document.querySelectorAll(".technical-term[data-term]")
+  ).filter(term => {
+    const termId = term.dataset.term;
+
+    if (seenTerms.has(termId)) {
+      term.replaceWith(document.createTextNode(term.textContent));
+      return false;
+    }
+
+    seenTerms.add(termId);
+    return true;
+  });
+
+  if (!terms.length) return;
+
+  const popover = document.createElement("div");
+  popover.className = "technical-popover";
+  popover.id = "technical-term-popover";
+  popover.setAttribute("role", "tooltip");
+  document.body.appendChild(popover);
+
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let activeTerm = null;
+
+  const positionPopover = term => {
+    const termRect = term.getBoundingClientRect();
+    const popoverRect = popover.getBoundingClientRect();
+    const viewportPadding = 12;
+    const gap = 10;
+
+    let left = termRect.left + (termRect.width - popoverRect.width) / 2;
+    left = Math.max(
+      viewportPadding,
+      Math.min(left, window.innerWidth - popoverRect.width - viewportPadding)
+    );
+
+    let top = termRect.top - popoverRect.height - gap;
+
+    if (top < viewportPadding) {
+      top = termRect.bottom + gap;
+    }
+
+    popover.style.left = `${left}px`;
+    popover.style.top = `${top}px`;
+  };
+
+  const hidePopover = () => {
+    if (activeTerm) {
+      activeTerm.setAttribute("aria-expanded", "false");
+    }
+
+    activeTerm = null;
+    popover.classList.remove("is-visible");
+  };
+
+  const showPopover = term => {
+    const definition = technicalTermDefinitions[term.dataset.term];
+
+    if (!definition) return;
+
+    if (activeTerm && activeTerm !== term) {
+      activeTerm.setAttribute("aria-expanded", "false");
+    }
+
+    activeTerm = term;
+    popover.textContent = definition;
+    term.setAttribute("aria-expanded", "true");
+    popover.classList.add("is-visible");
+    positionPopover(term);
+  };
+
+  terms.forEach(term => {
+    const definition = technicalTermDefinitions[term.dataset.term];
+
+    if (!definition) return;
+
+    term.setAttribute("aria-describedby", popover.id);
+    term.setAttribute("aria-expanded", "false");
+
+    term.addEventListener("mouseenter", () => {
+      if (finePointer.matches) showPopover(term);
+    });
+
+    term.addEventListener("mouseleave", () => {
+      if (finePointer.matches) hidePopover();
+    });
+
+    term.addEventListener("focus", () => {
+      if (finePointer.matches) showPopover(term);
+    });
+    term.addEventListener("blur", () => hidePopover());
+
+    term.addEventListener("click", event => {
+      event.stopPropagation();
+
+      if (finePointer.matches) return;
+
+      if (activeTerm === term) {
+        hidePopover();
+      } else {
+        showPopover(term);
+      }
+    });
+  });
+
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".technical-term")) hidePopover();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") hidePopover();
+  });
+
+  window.addEventListener("resize", () => {
+    if (activeTerm) positionPopover(activeTerm);
+  });
+
+  window.addEventListener("scroll", () => {
+    if (activeTerm) positionPopover(activeTerm);
+  }, { passive: true });
+}
 
 /* ==========================================================
    Navigation
