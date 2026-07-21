@@ -1528,9 +1528,9 @@ select:focus {
     padding-bottom: 0;
   }
   .cinematic-icon {
-    flex-basis: clamp(38px, 10.5vw, 42px);
-    width: clamp(38px, 10.5vw, 42px);
-    height: clamp(38px, 10.5vw, 42px);
+    flex-basis: clamp(64px, 20vw, 80px);
+    width: clamp(64px, 20vw, 80px);
+    height: clamp(64px, 20vw, 80px);
   }
   .cinematic-flow-arrow { flex-basis: 14px; width: 14px; }
   .cinematic-zone-products {
