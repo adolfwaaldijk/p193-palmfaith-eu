@@ -1287,10 +1287,17 @@ select:focus {
   position: relative;
   opacity: 0;
   transform: translateY(30px) scale(.94);
+  transform-origin: center center;
   text-align: center;
   animation: productsReveal 1.2s cubic-bezier(.2,.8,.2,1) 17s forwards;
 }
-.product-reveal-scout { width: 46%; }
+.product-reveal-scout {
+  --scout-zoom-scale: 1.48;
+  width: 46%;
+  animation:
+    productsReveal 1.2s cubic-bezier(.2,.8,.2,1) 17s forwards,
+    scoutCinematicZoom 2.6s cubic-bezier(.16,.72,.24,1) 19.2s forwards;
+}
 .product-reveal img {
   width: 100%;
   height: 300px;
@@ -1445,6 +1452,16 @@ select:focus {
 @keyframes flowArrowReveal { to { opacity: 1; transform: translateX(0); } }
 @keyframes veinPulse { 0%,100% { opacity:.42; filter:drop-shadow(0 0 1px #ff2a12);} 50% {opacity:1; filter:drop-shadow(0 0 7px #ff2a12);} }
 @keyframes productsReveal { to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes scoutCinematicZoom {
+  from {
+    transform: perspective(1400px) translateZ(0) scale(1);
+    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+  }
+  to {
+    transform: perspective(1400px) translateZ(36px) scale(var(--scout-zoom-scale));
+    filter: drop-shadow(0 28px 30px rgba(0,0,0,.26));
+  }
+}
 @keyframes productBeamPulse { 0%,100% {opacity:.45;} 50% {opacity:1;} }
 @keyframes copyReveal { to { opacity:1; transform:translateY(0);} }
 @keyframes cinematicProgress { to { transform:scaleX(1); } }
@@ -1478,6 +1495,12 @@ select:focus {
   animation: none !important;
   transform: scaleX(1);
 }
+.cinematic-stage.is-skipped .product-reveal-scout {
+  animation: none;
+  opacity: 1;
+  transform: perspective(1400px) translateZ(36px) scale(var(--scout-zoom-scale));
+  filter: drop-shadow(0 28px 30px rgba(0,0,0,.26));
+}
 
 @media (max-width: 900px) {
   .cinematic-stage { min-height: 780px; height: calc(100vh - 70px); }
@@ -1486,23 +1509,38 @@ select:focus {
   .cinematic-icon { flex-basis: 70px; width: 70px; height: 70px; }
   .cinematic-flow-arrow { flex-basis: 32px; width: 32px; }
   .cinematic-zone-products { left: 70%; width: 30%; flex-direction: column; align-items: center; justify-content: center; gap: 26px; padding: 8% 2% 18%; }
-  .product-reveal-scout { width: 86%; }
+  .product-reveal-scout { --scout-zoom-scale: 1.18; width: 86%; }
   .product-reveal img { height: 175px; }
 }
 
 @media (max-width: 640px) {
   .cinematic-stage { min-height: 720px; height: 82vh; }
   .cinematic-zone-hand { width: 48%; }
-  .cinematic-zone-icons { left: 48%; width: 29%; gap: 2px; }
+  .cinematic-zone-icons {
+    left: 48%;
+    top: 19%;
+    bottom: auto;
+    width: 52%;
+    height: 25%;
+    gap: 2px;
+    padding-bottom: 0;
+  }
   .cinematic-icon {
     flex-basis: clamp(38px, 10.5vw, 42px);
     width: clamp(38px, 10.5vw, 42px);
     height: clamp(38px, 10.5vw, 42px);
   }
   .cinematic-flow-arrow { flex-basis: 14px; width: 14px; }
-  .cinematic-zone-products { left: 77%; width: 23%; gap: 18px; padding-bottom: 25%; }
-  .product-reveal-scout { width: 100%; }
-  .product-reveal img { height: 118px; }
+  .cinematic-zone-products {
+    left: 48%;
+    top: 40%;
+    bottom: 10%;
+    width: 52%;
+    gap: 0;
+    padding: 0 4% 10%;
+  }
+  .product-reveal-scout { --scout-zoom-scale: 1.32; width: 70%; }
+  .product-reveal img { height: 150px; }
   .product-reveal strong { font-size:.65rem; }
   .cinematic-scanner { width: 58%; left: 2%; bottom: 15%; }
   .scanner-vertical-beam { left: 30%; bottom: 30%; height: 30%; }
