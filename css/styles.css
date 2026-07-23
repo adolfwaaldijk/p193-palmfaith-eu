@@ -1174,6 +1174,40 @@ select:focus {
   text-underline-offset: 4px;
 }
 
+.scout-experience-card {
+  max-width: 980px;
+}
+
+.scout-experience-card h2 {
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+}
+
+.scout-experience-disclaimer {
+  color: var(--text-muted);
+  font-size: .86rem;
+}
+
+.scout-page .scout-card {
+  border-color: var(--border);
+  transform: none !important;
+  box-shadow: var(--shadow);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .scout-page .scout-card:hover {
+    border-color: var(--primary);
+    box-shadow:
+      var(--shadow),
+      0 0 0 1px rgba(0, 169, 232, .22),
+      0 16px 38px rgba(0, 169, 232, .12);
+    transform: translateY(-4px) !important;
+  }
+}
+
 .scout-use-case-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1292,6 +1326,10 @@ select:focus {
   }
 
   .scout-use-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scout-spec-grid {
     grid-template-columns: 1fr;
   }
 }
